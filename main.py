@@ -1,6 +1,6 @@
 import gpt
 import requests
-import pyvips
+import os
 
 class Zelda:
     def __init__(self):
@@ -14,12 +14,6 @@ class Zelda:
         url = "https://math.vercel.app/?from=" + str.replace(" ", "%20").replace("+", "%2B")
         svg = requests.get(url).text
         self.write_text(svg, "./temp/latex.svg")
-        self.svg_to_png("./temp/latex.svg")
-
-    def svg_to_png(self, svg):
-        image = pyvips.Image.new_from_file(svg, dpi=300)
-        image.write_to_file("./temp/latex.png")
-
 
     def latex(self, input):
         tex = self.gpt.latex(input)
