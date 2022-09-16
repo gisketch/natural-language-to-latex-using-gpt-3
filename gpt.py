@@ -31,5 +31,8 @@ LatEx: \lim_{x \to 3} \frac{x^2 + 3x + 4}{9x}
 + f"User: {input}\nLatEx: ",
             temperature=0,
             max_tokens=512,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0,
         )
         return response.choices[0].text
